@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>JD – Giáo Viên Dạy Online Định Hướng Kỹ Năng Cho Trẻ</title>
+
+<style>
+  /* BACKGROUND ULTRA */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: "Inter", sans-serif;
+    background: linear-gradient(135deg, #e9f6ff 0%, #ffffff 40%, #fff6ed 100%);
+    color: #1a1a1a;
+    position: relative;
+    overflow-x: hidden;
+  }
+
+  /* GRID LIGHT */
+  body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-image:
+      linear-gradient(to right, rgba(0,0,0,0.04) 1px, transparent 1px),
+      linear-gradient(to bottom, rgba(0,0,0,0.04) 1px, transparent 1px);
+    background-size: 42px 42px;
+    pointer-events: none;
+    opacity: .35;
+  }
+
+  /* BIG GLOW */
+  body::after {
+    content: "";
+    position: fixed;
+    width: 480px;
+    height: 480px;
+    top: -120px;
+    right: -80px;
+    background: radial-gradient(circle, rgba(0,140,255,0.25), transparent 70%);
+    filter: blur(30px);
+    pointer-events: none;
+  }
+
+  /* WRAPPER GLASS ULTRA */
+  .wrapper {
+    max-width: 920px;
+    margin: 70px auto;
+    padding: 55px;
+    border-radius: 34px;
+    background: rgba(255,255,255,0.72);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,0.5);
+    box-shadow:
+      0 25px 80px rgba(0,0,0,0.12),
+      0 0 90px rgba(0,122,255,0.20),
+      inset 0 0 30px rgba(255,255,255,0.45);
+    animation: fade 0.8s ease-out;
+    position: relative;
+  }
+
+  /* BORDER GLOW */
+  .wrapper::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    border-radius: 36px;
+    padding: 2px;
+    background: linear-gradient(120deg, #00a6ff, #ff8f2e, #00e0ff);
+    background-size: 300% 300%;
+    animation: borderglow 5s linear infinite;
+    -webkit-mask: 
+        linear-gradient(#fff 0 0) content-box, 
+        linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+            mask-composite: exclude;
+  }
+
+  @keyframes borderglow {
+    0% {background-position: 0% 50%;}
+    50% {background-position: 100% 50%;}
+    100% {background-position: 0% 50%;}
+  }
+
+  @keyframes fade {
+    from {opacity:0; transform: translateY(25px);}
+    to {opacity:1; transform: translateY(0);}
+  }
+
+  /* TITLE SHINE */
+  h1 {
+    font-size: 44px;
+    text-align: center;
+    font-weight: 900;
+    background: linear-gradient(90deg, #007aff, #ff8f2e);
+    -webkit-background-clip: text;
+    color: transparent;
+    position: relative;
+    letter-spacing: -1px;
+  }
+
+  h1::after {
+    content: "";
+    position: absolute;
+    top: 0; left: -120%;
+    width: 120%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent 0%, rgba(255,255,255,0.7) 50%, transparent 100%);
+    transform: skewX(-20deg);
+    animation: shine 4s infinite;
+  }
+
+  @keyframes shine {
+    0% {left: -120%;}
+    60% {left: 120%;}
+    100% {left: 120%;}
+  }
+
+  .subtitle {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: #ff8f2e;
+    margin-bottom: 35px;
+  }
+
+  /* BUTTON ULTRA */
+  .download-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 12px;
+    background: linear-gradient(135deg, #007aff, #00d1ff);
+    padding: 16px 36px;
+    border-radius: 18px;
+    font-size: 18px;
+    font-weight: 800;
+    color: white;
+    text-decoration: none;
+    text-transform: uppercase;
+    box-shadow: 
+      0 12px 26px rgba(0,122,255,0.4),
+      0 0 25px rgba(0,195,255,0.35);
+    transition: 0.28s ease;
+  }
+
+  .download-btn:hover {
+    transform: translateY(-6px) scale(1.05);
+    box-shadow:
+      0 18px 45px rgba(0,122,255,0.55),
+      0 0 38px rgba(0,195,255,0.55);
+  }
+
+  /* SECTIONS */
+  .section {
+    margin-top: 40px;
+    padding: 30px;
+    border-radius: 24px;
+    background: #ffffffee;
+    border: 1px solid #e7e7e7;
+    box-shadow: 0 10px 35px rgba(0,0,0,0.05);
+  }
+
+  h2 {
+    font-size: 25px;
+    font-weight: 800;
+    margin-bottom: 14px;
+    background: linear-gradient(90deg, #007aff, #00e0ff);
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  ul {
+    padding-left: 24px;
+    font-size: 17px;
+    line-height: 1.8;
+  }
+
+  .apply-box {
+    margin-top: 45px;
+    padding: 28px;
+    text-align: center;
+    background: linear-gradient(135deg, #007aff, #00d1ff);
+    color: white;
+    border-radius: 22px;
+    box-shadow: 0 12px 40px rgba(0,122,255,0.45);
+    font-size: 18px;
+    font-weight: 700;
+  }
+
+  .info-box {
+    margin-top: 50px;
+    padding: 30px;
+    border-radius: 20px;
+    background: #fff5e8;
+    border: 1px solid #ffd9b3;
+    line-height: 1.8;
+    box-shadow: 0 10px 30px rgba(255,153,28,0.22);
+    font-size: 17px;
+  }
+
+  .info-box a {
+    color: #ff8f2e;
+    font-weight: 700;
+    text-decoration: none;
+  }
+
+  .partner {
+    margin-top: 40px;
+    text-align: center;
+    font-size: 16px;
+    font-style: italic;
+  }
+
+  .partner a {
+    color: #007aff;
+    font-weight: 700;
+    text-decoration: none;
+  }
+</style>
+</head>
+
+<body>
+
+<div class="wrapper">
+
+  <h1>JD – Giáo Viên Dạy Online Định Hướng Kỹ Năng Cho Trẻ Em</h1>
+  <div class="subtitle">AI WiZ KIDS Academy — Học AI 1:1 & Tư Duy Công Nghệ</div>
+
+  <div style="text-align:center">
+    <a class="download-btn" href="jd-giao-vien-online.pdf" download>⬇ TẢI JD PDF</a>
+  </div>
+
+  <!-- Mô tả -->
+  <div class="section">
+    <h2>📚 Mô tả công việc</h2>
+    <ul>
+      <li>Giảng dạy online cho trẻ 4–16 tuổi theo giáo trình & lesson plan chuẩn.</li>
+      <li>Chuẩn bị bài, kiểm tra thiết bị, đảm bảo buổi học mượt mà.</li>
+      <li>Tạo không khí học tập vui vẻ – tích cực – tương tác.</li>
+      <li>Theo dõi tiến độ học viên + báo cáo theo quy định.</li>
+      <li>Hỗ trợ phụ huynh khi cần (đã có mẫu hướng dẫn).</li>
+      <li>Dạy đúng giờ – giữ thái độ chuyên nghiệp.</li>
+    </ul>
+  </div>
+
+  <!-- Đối tượng -->
+  <div class="section">
+    <h2>🧩 Đối tượng phù hợp</h2>
+    <ul>
+      <li>Sinh viên / người mới đi làm — không yêu cầu kinh nghiệm.</li>
+      <li>Yêu thích trẻ em, kiên nhẫn, tích cực.</li>
+      <li>Giao tiếp tốt, giọng dễ nghe.</li>
+      <li>Biết dùng Zoom, chia sẻ màn hình.</li>
+      <li>Tư duy logic tốt / nền tảng CNTT / STEM là lợi thế.</li>
+      <li>Tiếng Anh cơ bản.</li>
+    </ul>
+  </div>
+
+  <!-- Chế độ -->
+  <div class="section">
+    <h2>💰 Chế độ & Quyền lợi</h2>
+    <ul>
+      <li>100% online – làm việc từ bất kỳ đâu.</li>
+      <li>Lịch dạy linh hoạt.</li>
+      <li>Thu nhập theo giờ cạnh tranh + thưởng chất lượng.</li>
+      <li>Lương thanh toán hàng tháng, minh bạch.</li>
+      <li>Giáo trình & tài liệu đầy đủ.</li>
+      <li>Đào tạo kỹ năng dạy online.</li>
+    </ul>
+  </div>
+
+  <!-- Apply -->
+  <div class="apply-box">
+    📩 ỨNG TUYỂN NGAY<br>
+    Email: <strong>recruit@awk.edu.vn</strong><br>
+    Zalo: <strong>0932 048 881</strong> — <strong>0797 539 591</strong>
+  </div>
+
+  <!-- Intro AWK -->
+  <div class="info-box">
+    <strong>Website AI School AI WiZ KIDS:</strong>
+    <a href="https://awk.edu.vn" target="_blank">awk.edu.vn</a><br><br>
+
+    AI WiZ KIDS là hệ thống AI School tiên phong tại Việt Nam, giúp trẻ 4–16 tuổi tiếp cận AI sớm, phát triển tư duy logic – lập trình – sáng tạo – tương tác AI.  
+    Chương trình dựa trên mô hình <strong>AI-Enhanced Learning</strong>, kết hợp giáo viên thật và hệ thống AI theo dõi tiến độ cá nhân hóa.
+  </div>
+
+  <!-- Hyper One -->
+  <div class="partner">
+    AI WiZ KIDS là Đối tác Giáo Dục Chiến Lược của  
+    <a href="https://hyperonevn.com" target="_blank">Hyper One</a> —  
+    nền tảng công nghệ cung cấp toàn bộ hệ thống AI cho AWK.
+  </div>
+
+</div>
+
+</body>
+</html>
